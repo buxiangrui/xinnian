@@ -13,7 +13,7 @@ body {
 .container {
     position: relative;
     padding: 20px;
-    margin-top: 150px;
+    margin-top: 50px;
     z-index: 1;
 }
 
@@ -194,6 +194,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 更新祝福墙样式 */
 .blessing-wall {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
@@ -207,7 +208,8 @@ body {
     color: #e74c3c;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .blessing-messages {
@@ -215,19 +217,45 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    padding: 10px;
 }
 
 .message {
     background: linear-gradient(145deg, #fff5f5, #ffe8e8);
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    font-size: 18px;
+    color: #e74c3c;
+    cursor: pointer;
+    animation: messageFloat 3s ease-in-out infinite;
+    animation-delay: calc(var(--message-delay) * 0.5s);
 }
 
 .message:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #ffe8e8, #ffd5d5);
+}
+
+/* 添加消息浮动动画 */
+@keyframes messageFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .blessing-wall {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .message {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
 }
 
 /* 更新现有样式 */

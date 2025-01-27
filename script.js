@@ -1,21 +1,3 @@
-// 倒计时功能
-function updateCountdown() {
-    const newYear = new Date('2025-02-10T00:00:00'); // 2025年春节日期
-    const now = new Date();
-    const diff = newYear - now;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown-timer').innerHTML = 
-        `${days}天 ${hours}时 ${minutes}分 ${seconds}秒`;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
 // 祝福圆环文字排列
 function arrangeWishCircle() {
     const wishCircle = document.querySelector('.wish-circle');
@@ -60,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.left = `${Math.random() * 100}vw`;
         item.style.animationDuration = `${Math.random() * 3 + 2}s`;
         item.style.animationDelay = `${Math.random() * 2}s`;
+    });
+    
+    // 添加祝福消息动画延迟
+    const messages = document.querySelectorAll('.message');
+    messages.forEach((message, index) => {
+        message.style.setProperty('--message-delay', Math.random() * 2);
+        
+        // 添加点击效果
+        message.addEventListener('click', () => {
+            message.style.transform = 'scale(1.2) translateY(-10px)';
+            setTimeout(() => {
+                message.style.transform = '';
+            }, 500);
+        });
     });
 });
 
