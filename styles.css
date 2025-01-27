@@ -3,23 +3,28 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     font-family: "Microsoft YaHei", sans-serif;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .container {
     position: relative;
     padding: 20px;
+    margin-top: 150px;
+    z-index: 1;
 }
 
 .greeting-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     animation: cardFloat 3s ease-in-out infinite;
+    max-width: 600px;
 }
 
 .title {
@@ -53,11 +58,24 @@ body {
 .lantern {
     width: 50px;
     height: 70px;
-    background: #e74c3c;
+    background: linear-gradient(#ff4d4d, #ff1a1a);
     border-radius: 25px;
     position: absolute;
     top: 0;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
     animation: lanternSwing 3s ease-in-out infinite;
+}
+
+.lantern::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    border-radius: 50%;
 }
 
 .lantern.left {
@@ -85,20 +103,31 @@ body {
     50% { transform: rotate(5deg); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .countdown {
+        position: static;
+        margin: 20px auto;
+    }
+    
+    .music-player {
+        top: auto;
+        bottom: 20px;
+    }
+    
+    .couplets {
+        display: none;
+    }
+    
     .greeting-card {
-        padding: 20px;
+        margin: 20px;
+        padding: 15px;
     }
     
     .title {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .content {
-        font-size: 18px;
-    }
-    
-    .lantern {
-        display: none;
+        font-size: 16px;
     }
 } 
