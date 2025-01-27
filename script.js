@@ -16,22 +16,6 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// 音乐播放控制
-const musicBtn = document.getElementById('musicToggle');
-const bgMusic = document.getElementById('bgMusic');
-let isMusicPlaying = false;
-
-musicBtn.addEventListener('click', () => {
-    if (isMusicPlaying) {
-        bgMusic.pause();
-        musicBtn.innerHTML = '<i class="fas fa-music"></i>';
-    } else {
-        bgMusic.play();
-        musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    }
-    isMusicPlaying = !isMusicPlaying;
-});
-
 // 祝福圆环文字排列
 function arrangeWishCircle() {
     const wishCircle = document.querySelector('.wish-circle');
