@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+.container {
+    position: relative;
+    padding: 20px;
+}
+
+.greeting-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: cardFloat 3s ease-in-out infinite;
+}
+
+.title {
+    color: #c0392b;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.content {
+    font-size: 24px;
+    color: #333;
+}
+
+.wishes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.wishes span {
+    animation: fadeIn 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.wishes span:nth-child(1) { animation-delay: 0.5s; }
+.wishes span:nth-child(2) { animation-delay: 1s; }
+.wishes span:nth-child(3) { animation-delay: 1.5s; }
+.wishes span:nth-child(4) { animation-delay: 2s; }
+
+.lantern {
+    width: 50px;
+    height: 70px;
+    background: #e74c3c;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    animation: lanternSwing 3s ease-in-out infinite;
+}
+
+.lantern.left {
+    left: -60px;
+    animation-delay: 0.5s;
+}
+
+.lantern.right {
+    right: -60px;
+    animation-delay: 0.2s;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lanternSwing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@media (max-width: 600px) {
+    .greeting-card {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 36px;
+    }
+    
+    .content {
+        font-size: 18px;
+    }
+    
+    .lantern {
+        display: none;
+    }
+} 
